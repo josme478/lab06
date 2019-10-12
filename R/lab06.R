@@ -113,14 +113,15 @@ knapsack_dynamic <- function(x, W){
 
 
 greedy_knapsack <- function(x, W){
-  n<-nrow(x)
-  x$weight < -x$v / x$w
-  value <- 0
-  elements <- replicate(n, 0)
+  n<-dim(x)[1]
+  
+  x$weight<-x$v/x$w
+  value<-0
+  elements<-rep(0,n)
   k<-1
   
   #we find the max value of the weights, we take the position so calculate the sum and to save the elements we are adding
-  while((sum(x$w[elements]) + x$w[which.max(x$weight)]) <= W && any(x$weight>0)){
+  while((sum(x$w[elements])+x$w[which.max(x$weight)])<=W && any(x$weight>0)){
     i<-which.max(x$weight)
     value<-value+x$v[i] 
     elements[k]<-i
