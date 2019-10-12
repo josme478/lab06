@@ -5,6 +5,16 @@ knapsack_objects <- data.frame(
     v=runif(n = n, 0, 10000)
   )
 
+#' @title Solve the knapsack problem using a brute force approach. 
+#' @param x A data frame object, containing two variables \code{v} and \code{w}. \code{v} contains the value of the object n and \code{w} its value.  
+#' @param W An integer, representing the capacity of the knapsack. 
+#' @return  A list with two objects: \code{$value} which is the value of the knapsack and an object \code{$elements} which are the elements contained in the knapsack. 
+#' @examples
+#' \code{set.seed(42)}
+#' \code{x <- data.frame(w=sample(1:4000, size = 10, replace = TRUE), v=runif(n = 10, 0, 10000))}
+#' \code{W <- 3500}
+#' \code{knapsack_brute_force(x, W)}
+#' @export knapsack_brute_force
 knapsack_brute_force <- function(x, W){
   stopifnot(is.data.frame(x), names(x) == c("w", "v"),is.numeric(W))
   n <- nrow(x)
@@ -39,6 +49,7 @@ knapsack_brute_force <- function(x, W){
     )
   return(bestChoiceList)
 }
+
 
 knapsack_dynamic <- function(x, W){
   n<-dim(x)[1]
@@ -80,6 +91,7 @@ knapsack_dynamic <- function(x, W){
   
   return(values)
 }
+
 
 greedy_knapsack <- function(x, W){
   n<-nrow(x)
