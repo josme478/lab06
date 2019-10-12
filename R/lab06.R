@@ -16,7 +16,7 @@ knapsack_objects <- data.frame(
 #' \code{brute_force_knapsack(x, W)}
 #' @export brute_force_knapsack
 brute_force_knapsack <- function(x, W){
-  stopifnot(is.data.frame(x), names(x) == c("w", "v"),is.numeric(W))
+  stopifnot(is.data.frame(x), names(x) == c("w", "v"),is.numeric(W), W >= 0)
   n <- nrow(x)
   bestValue <- 0
   bestWeight <- 0
@@ -64,6 +64,7 @@ brute_force_knapsack <- function(x, W){
 #' @export knapsack_dynamic
 
 knapsack_dynamic <- function(x, W){
+  stopifnot(is.data.frame(x), names(x) == c("w", "v"),is.numeric(W), W >= 0)
   n<-dim(x)[1]
   m<-matrix(ncol=W+1,nrow=n+1) #matrix of alg.
   m[1,]<-rep(0,W+1)
@@ -113,6 +114,7 @@ knapsack_dynamic <- function(x, W){
 
 
 greedy_knapsack <- function(x, W){
+  stopifnot(is.data.frame(x), names(x) == c("w", "v"),is.numeric(W), W >= 0)
   n<-dim(x)[1]
   
   x$weight<-x$v/x$w
