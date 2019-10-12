@@ -13,9 +13,9 @@ knapsack_objects <- data.frame(
 #' \code{set.seed(42)}
 #' \code{x <- data.frame(w=sample(1:4000, size = 10, replace = TRUE), v=runif(n = 10, 0, 10000))}
 #' \code{W <- 3500}
-#' \code{knapsack_brute_force(x, W)}
-#' @export knapsack_brute_force
-knapsack_brute_force <- function(x, W){
+#' \code{brute_force_knapsack(x, W)}
+#' @export brute_force_knapsack
+brute_force_knapsack <- function(x, W){
   stopifnot(is.data.frame(x), names(x) == c("w", "v"),is.numeric(W))
   n <- nrow(x)
   bestValue <- 0

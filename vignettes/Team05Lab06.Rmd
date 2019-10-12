@@ -23,7 +23,7 @@ The `lab06` package provides three different way to approach the knapsack proble
 The three approaches used to solve problem in the package are:
 
 \itemize{
-\item Brute force search: `brute_force_knapsack(x,W)`
+\item Brute force search: `knapsack_brute_force(x,W)`
 \item Dynamic programming: `knapsack_dynamic(x,W)`
 \item Greedy heuristic: `greedy_knapsack(x,W)`
 }
@@ -34,12 +34,12 @@ All three functions needs two arguments:
 
 - `W` : is a positive value representing the maximum weight capacity of the knapsack.
 
-The `brute_force_knapsack` is the only function with an optional parameter called `parallel`. It's FALSE by default but if it is set to TRUE then the function should parallelize over the detected cores.
+The `knapsack_brute_force` is the only function with an optional parameter called `parallel`. It's FALSE by default but if it is set to TRUE then the function should parallelize over the detected cores.
 
 
-## Brute force search: `brute_force_knapsack(x,W)`
+## Brute force search: `knapsack_brute_force(x,W)`
 
-The `brute_force_knapsack`function goes through all the possible alternatives and return the maximum value found. It gives a correct answer to the problem in all the situation but its complexity is $O(2^n)$ because all possible $2^n$ combinations need to be evaluated. 
+The `knapsack_brute_force`function goes through all the possible alternatives and return the maximum value found. It gives a correct answer to the problem in all the situation but its complexity is $O(2^n)$ because all possible $2^n$ combinations need to be evaluated. 
 
 To run the algorithm for $n=16$ objects it takes:
 
@@ -63,7 +63,7 @@ the user time it's better compared to the non-parallelized one but the elapsed t
 ## Dynamic programming: `knapsack_dynamic(x,W)`
 
 The `knapsack_dynamic` is based on the fact that all weights are nonnegative integers and they are all less than $W$. In this approach it's defined a matrix where in each position `m[i,w]` is stored the maximum value that can be attained with weight less than or equal to `w` using items up to `i`. The maximum value is found calculating `m[n,W]`.
-It gives a correct answer to the problem in all the situation but its complexity is $O(Wn)$ less than the `brute_force_knapsack`function. 
+It gives a correct answer to the problem in all the situation but its complexity is $O(Wn)$ less than the `knapsack_brute_force`function. 
 
 To run the algorithm for $n=500$ objects it takes:
 
