@@ -1,0 +1,19 @@
+---
+title: "Team05Lab06"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Team05Lab06}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(Team05Lab06)
+```
