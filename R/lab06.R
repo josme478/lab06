@@ -40,6 +40,19 @@ knapsack_brute_force <- function(x, W){
   return(bestChoiceList)
 }
 
+
+#' 
+#' @title Dynamic programming in in knapsack problem
+#' @param x A dataframe with two columns: the values (v) and the weights (w) of each item to put in the knapsack.
+#' @param W A positive number representing the knapsack size.
+#' @return A list of two elements: a positive number with the maximum knapsack \code{value} and a vector of all the \code{elements} in the knapsack size.
+#' @example
+#' set.seed(42)
+#' n <- 2000
+#' knapsack_objects <-data.frame(w=sample(1:4000, size = n, replace = TRUE),v=runif(n = n, 0, 10000))
+#' knapsack_dynamic(x = knapsack_objects[1:8,], W = 3500)
+#' @export knapsack_dynamic
+
 knapsack_dynamic <- function(x, W){
   n<-dim(x)[1]
   m<-matrix(ncol=W+1,nrow=n+1) #matrix of alg.
