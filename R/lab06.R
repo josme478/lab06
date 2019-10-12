@@ -80,6 +80,13 @@ knapsack_dynamic <- function(x, W){
   
   return(values)
 }
+#' @title  using some heuristic or common sense knowledge to generate a sequence of suboptimum that hopefully converges to an optimum value.
+#' @param x A dataframe with two columns: the values (v) and the weights (w) of each item to put in the knapsack.
+#' @param W A positive number representing the knapsack size.. 
+#' @return  A list of two elements: a positive number with the maximum knapsack \code{value} and a vector of all the \code{elements} in the knapsack size.  
+#' @examples
+#' greedy_knapsack(x = knapsack_objects[1:800,], W = 3500)
+#' @export greedy_knapsack
 
 greedy_knapsack <- function(x, W){
   n<-nrow(x)
